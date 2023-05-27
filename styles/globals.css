@@ -15,3 +15,123 @@ h6 {
 body {
   font-family: var(--font-secondary);
 }
+
+
+
+table {
+  width: 100%;
+  background-color: #FFFFFF00;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: var(--font-secondary);
+  border-style: solid;
+  color: var(--font-primary);
+
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+}
+
+
+/* Apply a border to the right of all but the last column */
+table th:not(:last-child),
+table td:not(:last-child) {
+  border-width: 2px;
+  border-color: var(--font-secondary);
+  border-style: solid;
+}
+/* Apply a border to the bottom of all but the last row */
+table>thead>tr:not(:last-child)>th,
+table>thead>tr:not(:last-child)>td,
+table>tbody>tr:not(:last-child)>th,
+table>tbody>tr:not(:last-child)>td,
+table>tfoot>tr:not(:last-child)>th,
+table>tfoot>tr:not(:last-child)>td,
+table>tr:not(:last-child)>td,
+table>tr:not(:last-child)>th,
+table>thead:not(:last-child),
+table>tbody:not(:last-child),
+table>tfoot:not(:last-child) {
+  border-width: 2px;
+  border-color: var(--font-secondary);
+  border-style: solid;
+}
+
+
+
+
+
+td, th {
+  padding: 5px;
+}
+
+/* th {
+  font-color: #ff0000
+} */
+
+thead {
+  background-color: var(--color-gradient-3);
+}
+
+.tableHighlightRed {
+  color: #E47B7B;
+  font-weight: bold;
+}
+
+.tableHighlightGreen {
+  color: #B4EFA3;
+  font-weight: bold;
+}
+.tableHighlightYellow {
+  color: #E1E47B;
+  font-weight: bold;
+}
+
+
+
+.box {
+  /* width: 400px;
+  height: 20px; */
+  border: 2px solid #000;
+  /* margin: 0 auto 15px; */
+  text-align: center;
+  /* padding: 20px; */
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+
+.info {
+  background-color: #429dd5;
+  /* border-color: var(--font-secondary); */
+}
+
+.warning {
+  background-color: #E47B7B;
+  /* border-color: var(--font-secondary); */
+}
+
+.success {
+  background-color: #B9FFAB;
+  border-color: #116400;
+  color: #116400;
+}
+
+.error {
+  background-color: #EBB1B1;
+  border-color: #973939;
+  color: #973939;
+}
+
+.boxInfo:before {
+  content: "\f05a";
+  color: #00529b;
+}
+
+.boxInfo {
+  background-color: var(--color-gradient-4);
+}
+
+.test {
+  @apply flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3;
+}
