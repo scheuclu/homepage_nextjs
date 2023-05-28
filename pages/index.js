@@ -44,28 +44,6 @@ export default function Index({ posts, globalData }) {
           <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/stanford.png" alt="" />
           <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/tum.png" alt=""  />
         </div>
-        
-        {/* <div className="grid grid-cols-4 gap-4">
-          <div>
-            <Image  src="/../static/images/logos/google.svg" alt="" layout='fill'/>
-          </div>
-          <div className="w-1/4 h-auto">
-            <Image  src="/../static/images/logos/google.svg" alt="" layout='fill'/>
-          </div>
-          <div className="w-1/4 h-auto">
-            <Image  src="/../static/images/logos/google.svg" alt="" layout='fill'/>
-          </div>
-          <div className="w-1/4 h-auto">
-            <Image  src="/../static/images/logos/google.svg" alt="" layout='fill'/>
-          </div>
-        </div> */}
-
-        {/* <p>
-        <img src="../../static/images/logos/google.svg" alt="" height="50px" />
-        <img src="/../static/images/logos/vw.png" alt="" height="50px" />
-        <img src="/../static/images/logos/stanford.png" alt="" height="55px" />
-        <img src="/../static/images/logos/tum.png" alt="" height="50px" />
-        </p> */}
 
         <hr></hr>
         <p className='text-3xl mb-6 mt-12 font-extrabold'> Recent Posts</p>
