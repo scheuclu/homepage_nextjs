@@ -22,7 +22,6 @@ const Plot = dynamic(() => import("react-plotly.js"), { ssr: false, })
 
 import { BlockMath, InlineMath } from 'react-katex';
 import YouTube, { YouTubeProps } from 'react-youtube';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FaGithub } from "react-icons/fa";
 import { FaLink } from "react-icons/fa";
 import ImageGallery from 'react-image-gallery';
