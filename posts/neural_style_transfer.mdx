@@ -1,0 +1,165 @@
+---
+title: "Neural Style Transfer"
+date: Jan 5 2023
+description: "In Neural Style Transfer, artifical neural networks are used to combine two images,
+such that the result has the content of one but the style of another image.  \n \n
+
+I go through the basic concepts and mathematical formulatins and also provide a working codebase for you to try.
+
+A gallery with some of my proudest results is provided at the end ."
+---
+
+In this project, I implemented neural style transfer in PyTorch.
+
+The goals is simple. We take a `content image` and a `style image`. The goal is to keep the semantic content of the `content` image, but draw it in the style of the `style image`.
+
+To do this, we start with a simple classification Convolutional Neural Network (CNN). A CNN  encodes a high resolution image into a large number of low-resolution features channels. These channels encode common semantics of the training set.
+
+<div className="inverted_img_if_dark">
+![](/../static/images/cnn.png)
+</div>
+
+See also [here]([TODO](https://en.wikipedia.org/wiki/Neural_style_transfer)) for a more extensive explanation.
+
+In my case I used VGG-19. Now, VGG-19 takes an input image, succcesively applies convolutions until a much smaller feature map is obtained. The feature map is then fed into a softmax to obtain classifications for N classes.
+
+
+## The style matrix
+The style matrix is also called a "Gram matrix." In linear algebra, the Gram matrix G of a set of vectors
+<InlineMath>{'(v_{1},\\dots ,v_{n})'}</InlineMath>
+is the matrix of dot products, whose entries are
+<InlineMath>{'\\displaystyle G_{ij} = v_{i}^T v_{j} = np.dot(v_{i}, v_{j})  '}</InlineMath>
+In other words,
+<InlineMath>{'G_{ij}'}</InlineMath>
+compares how similar
+<InlineMath>{'v_i'}</InlineMath> is to <InlineMath>{'v_j'}</InlineMath>
+If they are highly similar, you would expect them to have a large dot product, and thus for
+<InlineMath>{'G_{ij}'}</InlineMath>
+to be large. 
+
+
+
+
+
+## Style cost
+After generating the Style matrix (Gram matrix), your goal will be to minimize the distance between the Gram matrix of the "style"
+image S and that of the "generated" image G. For now, we are using only a single hidden layer
+<InlineMath>{'a^{[l]}'}</InlineMath>
+, and the corresponding style cost for this layer is defined as: 
+
+<BlockMath>{'J_{style}^{[l]}(S,G) = \\frac{1}{4} \\times {n_C}^2 \\times n_H \\times n_W^2  \\sum_{i=1}^{n_C} \\sum_{j=1}^{n_C} (\\Delta G )^2 '}</BlockMath>
+with
+<BlockMath>{  '\\Delta G = G_{ij}^{(S)} - G_{ij}^{(G)} ' }</BlockMath>
+
+
+
+
+
+where
+<InlineMath>{'G^{(S)}'}</InlineMath>
+and
+<InlineMath>{'G^{(G)}'}</InlineMath>
+are respectively the Gram matrices of the "style" image and the "generated" image, computed using the hidden layer
+activations for a particular hidden layer in the network.  
+
+
+So far you have captured the style from only one layer.
+We'll get better results if we "merge" style costs from several different layers.
+After completing this exercise, feel free to come back and experiment with different weights to see how it changes the generated image
+<InlineMath>{'G'}</InlineMath>
+.
+But for now, this is a pretty reasonable default: 
+
+You can combine the style costs for different layers as follows:
+<BlockMath>{'J_{style}(S,G) = \\sum_{l} \\lambda^{[l]} J^{[l]}_{style}(S,G)'}</BlockMath>
+
+
+Finally, let's create a cost function that minimizes both the style and the content cost. The formula is: 
+<BlockMath>{'J(G) = \\alpha J_{content}(C,G) + \\beta J_{style}(S,G)'}</BlockMath>
+
+
+
+
+
+
+
+
+
+<ImageGallery items={
+    [
+  {
+    original: '/../static/images/style_transfer/content/edritz_content_image.jpg',
+    thumbnail: '/../static/images/style_transfer/content/edritz_content_image.jpg',
+    description: "Content image"
+  },
+  {
+    original: '/../static/images/style_transfer/style/pop_art.jpg',
+    thumbnail: '/../static/images/style_transfer/style/pop_art.jpg',
+    description: "Style image"
+  },
+  {
+    original: '/../static/images/style_transfer/edritz/edritz_pop_art.jpg',
+    thumbnail: '/../static/images/style_transfer/edritz/edritz_pop_art.jpg',
+    description: "Result image"
+  },
+
+  {
+    original: '/../static/images/style_transfer/content/edritz_content_image.jpg',
+    thumbnail: '/../static/images/style_transfer/content/edritz_content_image.jpg',
+    description: "Content image"
+  },
+  {
+    original: '/../static/images/style_transfer/style/wood.jpg',
+    thumbnail: '/../static/images/style_transfer/style/wood.jpg',
+    description: "Style image"
+  },
+  {
+    original: '/../static/images/style_transfer/edritz/edritz_wood.jpg',
+    thumbnail: '/../static/images/style_transfer/edritz/edritz_wood.jpg',
+    description: "Result image"
+  },
+
+  {
+    original: '/../static/images/style_transfer/content/edritz_content_image.jpg',
+    thumbnail: '/../static/images/style_transfer/content/edritz_content_image.jpg',
+    description: "Content image"
+  },
+  {
+    original: '/../static/images/style_transfer/style/lilies.jpg',
+    thumbnail: '/../static/images/style_transfer/style/lilies.jpg',
+    description: "Style image"
+  },
+  {
+    original: '/../static/images/style_transfer/edritz/edritz_lilies.jpg',
+    thumbnail: '/../static/images/style_transfer/edritz/edritz_lilies.jpg',
+    description: "Result image"
+  },
+
+  {
+    original: '/../static/images/style_transfer/content/edritz_content_image.jpg',
+    thumbnail: '/../static/images/style_transfer/content/edritz_content_image.jpg',
+    description: "Content image"
+  },
+  {
+    original: '/../static/images/style_transfer/style/psy1.jpg',
+    thumbnail: '/../static/images/style_transfer/style/psy1.jpg',
+    description: "Style image"
+  },
+  {
+    original: '/../static/images/style_transfer/edritz/edritz_psy_5.jpg',
+    thumbnail: '/../static/images/style_transfer/result/edritz_psy_5.jpg',
+    description: "Result image"
+  },
+
+
+
+
+]
+} />
+
+
+
+
+
+
+
