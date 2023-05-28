@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+@import "~react-image-gallery/styles/css/image-gallery.css";
 
 h1,
 h2,
@@ -135,3 +136,14 @@ thead {
 .test {
   @apply flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3;
 }
+
+.inverted_img_if_dark{
+  /*-webkit-filter: invert(100%); Safari/Chrome
+  /* filter: invert(100%); */
+  filter: hue-rotate(180deg) invert(100%);
+  /* filter: grayscale(); */
+}
+
+/* hr {
+  border: 2px solid var(--color-primary);
+} */
