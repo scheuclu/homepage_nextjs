@@ -39,10 +39,10 @@ export default function Index({ posts, globalData }) {
         <hr></hr>
 
         <div class="grid grid-cols-4 gap-4 justify-center items-center align-center mb-4 mt-4">
-          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="../../static/images/logos/google.svg" alt="" />
-          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="../../static/images/logos/vw.png" alt=""/>
-          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="../../static/images/logos/stanford.png" alt="" />
-          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="../../static/images/logos/tum.png" alt=""  />
+          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/google.svg" alt="" />
+          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/vw.png" alt=""/>
+          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/stanford.png" alt="" />
+          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/tum.png" alt=""  />
         </div>
         
         {/* <div className="grid grid-cols-4 gap-4">
