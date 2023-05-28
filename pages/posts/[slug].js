@@ -20,6 +20,13 @@ import React from 'react';
 import dynamic from "next/dynamic";
 const Plot = dynamic(() => import("react-plotly.js"), { ssr: false, })
 
+import { BlockMath, InlineMath } from 'react-katex';
+import YouTube, { YouTubeProps } from 'react-youtube';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaGithub } from "react-icons/fa";
+import { FaLink } from "react-icons/fa";
+import ImageGallery from 'react-image-gallery';
+
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
@@ -32,8 +39,13 @@ const components = {
   Head,
   Table,
   React,
-  Plot
+  Plot,
+  BlockMath,
+  InlineMath,
+  YouTube,
+  ImageGallery
 };
+
 
 export default function PostPage({
   source,
@@ -57,7 +69,43 @@ export default function PostPage({
           {frontMatter.description && (
             <p className="text-xl mb-4">{frontMatter.description}</p>
           )}
-        </header>
+          </header>
+
+
+<div className="grid md:grid-cols-2 gap-4 mt-2 mb-8 content-center items-center">
+        {frontMatter.source && 
+        <Link href={`${frontMatter.source}`}>
+        <a className="flex items-center rounded-lg bg-white dark:bg-black dark:bg-opacity-30 
+        bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border 
+        border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-t 
+        first:border-t last:border-b py-2 px-4">
+          <p className="uppercase text-gray-500 dark:text-white dark:opacity-60">
+            <FaGithub className="mr-2"/>
+          </p>
+          <h4 className="text-1xl text-gray-700 dark:text-white">
+            Source code
+          </h4>
+        </a></Link>
+        }
+        {frontMatter.deployed && 
+        <Link href={`${frontMatter.deployed}`}>
+        <a className="flex items-center rounded-lg bg-white dark:bg-black dark:bg-opacity-30 
+        bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border 
+        border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-t 
+        first:border-t last:border-b py-2 px-4">
+          <p className="uppercase text-gray-500 dark:text-white dark:opacity-60">
+            <FaLink className="mr-2"/>
+          </p>
+          <h4 className="text-1xl text-gray-700 dark:text-white">
+            Deployed app
+          </h4>
+        </a></Link>
+        }
+      </div>
+
+
+
+        
         <main>
           <article className="prose dark:prose-dark">
             <MDXRemote {...source} components={components} />
