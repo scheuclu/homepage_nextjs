@@ -16,22 +16,23 @@ export default function Index({ posts, globalData }) {
       <SEO title={globalData.name} description={globalData.blogTitle} />
       <Header name={globalData.name} />
       <main className="container mx-auto">
-        <h1 className="text-3xl lg:text-4xl text-center mb-8">
+        {/* <h1 className="text-3xl lg:text-4xl text-center mb-8">
           {globalData.blogTitle}
-        </h1>
-        <p className="text-center mb-8">
-          Hi, I am an Austrian software developer who turned from Big Tech to freelancing during the COVID pandemic. 
-
+        </h1> */}
+        {/* <img src="/images/profile_quadratic.jpg" alt="" height="200px" /> */}
+        <p className="text-center text-justify mb-8">
+          Hi, I am an Austrian software developer who turned from Big Tech to freelancing during the COVID pandemic. <br></br>
+          <br></br>
           I have an education from Technical University of Munich as well as Stanford University. However, I consider myself a lifelong learner, so I have plenty or other certifications.
-
-          My favourite language is Python❤️, but I am also fluent in C, C++ and Go.
-
-          Fields that excite me are Machine Learning, Data Visualization and Blockchain Technology. I believe technology is about empowering people, so I value anything that brings accessibility to the masses and removes centralization.
-
+          <br></br><br></br>
+          My favourite language is <b>Python❤️</b>, but I am also fluent in <b>C</b>, <b>C++</b> and <b>Go</b>.
+          <br></br>
+          Fields that excite me are <b>Machine Learning</b>, <b>Data Visualization</b> and <b>Blockchain Technology</b>. I believe technology is about empowering people, so I value anything that brings accessibility to the masses and removes centralization.
+          <br></br><br></br>
           Other than that, I am passionate about nature, fiction and Formula 1 (🇳🇱)!
-
-          Please check out my CV and portfolio.
-
+          <br></br><br></br>
+          Please check out my <a href="https://scheuclu.github.io/hugo_cv"><b>CV</b></a> and portfolio.
+          <br></br>
           If you think I could help you with your project, please dont hestitate to reach out!
         </p>
 
@@ -40,13 +41,13 @@ export default function Index({ posts, globalData }) {
 
         <div class="grid grid-cols-4 gap-4 justify-center items-center align-center mb-4 mt-4">
           <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/google.svg" alt="" />
-          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/vw.png" alt=""/>
+          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/vw.png" alt="" />
           <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/stanford.png" alt="" />
-          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/tum.png" alt=""  />
+          <img className='grayscale brightness-30 dark:brightness-0 saturate-0 dark:invert h-12 logo' src="/images/logos/tum.png" alt="" />
         </div>
 
         <hr></hr>
-        <p className='text-3xl mb-6 mt-12 font-extrabold'> Recent Posts</p>
+        <p className='text-3xl mb-6 mt-12 font-extrabold'> Blog</p>
         <ul>
           {posts.map((post) => (
             <li
