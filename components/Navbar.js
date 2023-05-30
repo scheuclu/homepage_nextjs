@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from 'next/router';
 import { useLocation } from 'react-router-dom';
 
+import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 
 
@@ -31,6 +32,25 @@ export default function Navbar({ linkpage }) {
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Lukas Scheucher</span>
           </div>
         </Link>
+
+
+
+
+
+        <div className="flex gap-x-4 text-2xl">
+          <Link href="https://github.com/scheuclu" class="flex items-center">
+            <FaGithub className="hover:text-blue-300" />
+          </Link>
+          <Link href="https://www.linkedin.com/in/scheuclu" class="flex items-center">
+            <FaLinkedin className="hover:text-blue-300" />
+          </Link>
+          <Link href="https://www.youtube.com/channel/UC0So4gJ11qUZI_dzqVMOq8w" class="flex items-center">
+            <FaYoutube className="hover:text-blue-300" />
+          </Link>
+        </div>
+
+
+
         <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
@@ -39,11 +59,15 @@ export default function Navbar({ linkpage }) {
           <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
             <li>
               <Link href="/"
-                class={page === "home" ? button_style_active : button_style_non_active} onC={() => setPage("home")}>Home</Link>
+                class={page === "home" ? button_style_active : button_style_non_active} onC={() => setPage("home")}>
+                <p className="hover:text-blue-300">Home</p>
+              </Link>
             </li>
             <li>
               <Link href="/posts"
-                class={page === "posts" ? button_style_active : button_style_non_active} onClick={() => setPage("posts")}>Posts</Link>
+                className={page === "posts" ? button_style_active : button_style_non_active} onClick={() => setPage("posts")}>
+                <p className="hover:text-blue-300">Posts</p>
+              </Link>
             </li>
             {/* <li>
               <a href="/skills"
@@ -51,11 +75,15 @@ export default function Navbar({ linkpage }) {
             </li> */}
             <li>
               <Link href="https://scheuclu.github.io/hugo_cv"
-                class={page === "cv" ? button_style_active : button_style_non_active} onClick={() => setPage("cv")}>CV</Link>
+                className={page === "cv" ? button_style_active : button_style_non_active} onClick={() => setPage("cv")}>
+                <p className="hover:text-blue-300">CV</p>
+              </Link>
             </li>
             <li>
               <Link href="/contact"
-                class={page === "contact" ? button_style_active : button_style_non_active} onClick={() => setPage("contact")}>Contact</Link>
+                className={page === "contact" ? button_style_active : button_style_non_active} onClick={() => setPage("contact")}>
+                <p className="hover:text-blue-300">Contact</p>
+              </Link>
             </li>
           </ul>
         </div>
