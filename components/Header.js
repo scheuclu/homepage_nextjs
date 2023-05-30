@@ -13,7 +13,7 @@ export default function Header({ name }) {
         <img src="/images/profile_quadratic.jpg">
       </div> */}
 
-      <img className="center align-center mt-4 rounded-lg backdrop-blur-lg h-60" src="/images/profile_quadratic.jpg" alt="" />
+      <img className="center align-center mt-4 rounded-lg backdrop-blur-lg h-60 sm:ml-16" src="/images/profile_quadratic.jpg" alt="" />
       {/* <div class="image-blurred-edge shadow-2xl shadow-inner shadow-green-800 h-80"></div> */}
 
     </header>
