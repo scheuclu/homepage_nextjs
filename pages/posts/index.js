@@ -13,6 +13,9 @@ import Image from 'next/image';
 
 import React from 'react';
 
+// import dynamic from "next/dynamic";
+// const Plot = dynamic(() => import("react-plotly.js"), { ssr: false, })
+
 
 export default function Index({ posts, globalData }) {
 
@@ -40,6 +43,20 @@ export default function Index({ posts, globalData }) {
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
       <main className="container mx-auto justify-center">
+
+        {/* <Plot
+          data={[
+            {
+              x: [1, 2, 3],
+              y: [2, 6, 3],
+              type: 'scatter',
+              mode: 'lines+markers',
+              marker: { color: 'red' },
+            },
+            { type: 'bar', x: [1, 2, 3], y: [2, 5, 3] },
+          ]}
+          layout={{ width: 320, height: 240, title: 'A Fancy Plot' }}
+        /> */}
 
         <p className='text-3xl mb-6 mt-12 font-extrabold'> Posts</p>
         <ul>

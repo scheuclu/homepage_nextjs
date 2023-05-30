@@ -71,7 +71,7 @@ td, th {
 } */
 
 thead {
-  background-color: var(--color-gradient-3);
+  background-color: #7d7aff;
 }
 
 .tableHighlightRed {

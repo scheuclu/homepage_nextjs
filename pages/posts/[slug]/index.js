@@ -17,8 +17,7 @@ import Layout, { GradientBackground } from '@/components/Layout';
 import SEO from '@/components/SEO';
 import { Table } from '@nextui-org/react'
 import React from 'react';
-import dynamic from "next/dynamic";
-const Plot = dynamic(() => import("react-plotly.js"), { ssr: false, })
+import PlotlyPlot from '@/components/PlotlyPlot';
 
 import { BlockMath, InlineMath } from 'react-katex';
 import YouTube, { YouTubeProps } from 'react-youtube';
@@ -27,6 +26,9 @@ import { FaLink } from "react-icons/fa";
 import ImageGallery from 'react-image-gallery';
 
 import ContactForm from '@/components/ContactForm'
+
+// import dynamic from "next/dynamic";
+// const Plot = dynamic(() => import("react-plotly.js"), { ssr: false, })
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -40,11 +42,11 @@ const components = {
   Head,
   Table,
   React,
-  Plot,
   BlockMath,
   InlineMath,
   YouTube,
-  ImageGallery
+  ImageGallery,
+  PlotlyPlot
 };
 
 
