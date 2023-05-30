@@ -26,6 +26,9 @@ import { FaLink } from "react-icons/fa";
 import ImageGallery from 'react-image-gallery';
 
 import ContactForm from '@/components/ContactForm'
+// import MarkdownRender from '@/components/MardkownRender';
+import 'katex/dist/katex.min.css' //important
+// import Latex from 'react-latex-next'
 
 // import dynamic from "next/dynamic";
 // const Plot = dynamic(() => import("react-plotly.js"), { ssr: false, })
@@ -46,7 +49,9 @@ const components = {
   InlineMath,
   YouTube,
   ImageGallery,
-  PlotlyPlot
+  PlotlyPlot,
+  // MarkdownRender,
+  // Latex
 };
 
 
