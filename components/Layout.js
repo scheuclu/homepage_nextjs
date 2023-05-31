@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { useEffect } from 'react';
 import styles from './Layout.module.css';
 import Navbar from './Navbar';
-import { light } from '@mui/material/styles/createPalette';
 
 export function GradientBackground({ variant, className }) {
   const classes = classNames(
@@ -18,12 +17,14 @@ export function GradientBackground({ variant, className }) {
 
 export default function Layout({ children }) {
   const setAppTheme = () => {
-    const darkMode = localStorage.getItem('theme') === 'dark';
+    // const darkMode = localStorage.getItem('theme') === 'dark';
     const lightMode = localStorage.getItem('theme') === 'light';
 
     // Add darkmode by default
     document.documentElement.classList.add('dark');
-    if (lightMode) document.documentElement.classList.remove('dark');
+    if (lightMode) {
+      document.documentElement.classList.remove('dark');
+    }
 
     // Original code
     // if (darkMode) {
