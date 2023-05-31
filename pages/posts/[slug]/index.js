@@ -72,13 +72,18 @@ export default function PostPage({
       {/* <Header name={globalData.name} /> */}
       <article className="mt-10 px-6 max-w-[100%] mx-auto">
         <header>
+          {/* <header className="bg-[url('/images/post_banners/style_transfer.jpg')] bg-cover	rounded-lg saturate-50 p-4 shadow-lg shadow-white mb-4 text-blue-200"> */}
           <h1 className="text-2xl md:text-4xl dark:text-white text-center mb-8">
             {frontMatter.title}
           </h1>
           {frontMatter.description && (
             <p className="text-xl mb-4">{frontMatter.description}</p>
           )}
+          {/* <img src="/images/post_banners/style_transfer.jpg" className="w-full rounded-lg mb-8 h-20" /> */}
         </header>
+
+
+        {/* <img src="/images/post_banners/style_transfer.jpg" className="w-full rounded-lg mb-8" /> */}
 
 
 
