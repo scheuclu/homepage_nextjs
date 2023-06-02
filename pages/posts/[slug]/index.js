@@ -25,6 +25,8 @@ import { FaGithub } from "react-icons/fa";
 import { FaLink } from "react-icons/fa";
 import ImageGallery from 'react-image-gallery';
 
+import SourceDeployButtons from '@/components/SourceDeployButtons'
+
 import ContactForm from '@/components/ContactForm'
 // import MarkdownRender from '@/components/MardkownRender';
 import 'katex/dist/katex.min.css' //important
@@ -63,60 +65,53 @@ export default function PostPage({
   globalData,
 }) {
   // return <ContactForm />;
+  console.log(frontMatter.image);
   return (
     <Layout>
       <SEO
         title={`${frontMatter.title} - ${globalData.name}`}
         description={frontMatter.description}
       />
+      <meta property="og:image" content={frontMatter.image} />
       {/* <Header name={globalData.name} /> */}
+
+
+
+
+
+      {/* <header className="w-full bg-[url('/images/post_banners/style_transfer.jpg')]  h-80
+      bg-cover	bg-center saturate-100 brightness-100 border-t-4 border-b-4 border-black dark:border-white flex flex-col items-center pt-8 ">
+
+        <p className='text-5xl'>Solidity Star Notary Dapp</p>
+        <p className='text-xl'>A DApp built on Ethereum using truffle, hosted on the Goerli test chain. I implemented an ERC721 token in Solidity representing Star name ownership. Anyone can connect, mint and trade stars</p>
+      </header> */}
+
+
+
       <article className="mt-10 px-6 max-w-[100%] mx-auto">
-        <header>
-          {/* <header className="bg-[url('/images/post_banners/style_transfer.jpg')] bg-cover	rounded-lg saturate-50 p-4 shadow-lg shadow-white mb-4 text-blue-200"> */}
-          <h1 className="text-2xl md:text-4xl dark:text-white text-center mb-8">
+        <header className='mb-4'>
+          {/* <header className="bg-[url('/images/post_banners/stars.jpg')] bg-cover	bg-center rounded-lg saturate-100 brightness-100 p-4 pt-6 mb-4 image-blurred-edge image-blurred-edge"> */}
+          <h1 className="text-2xl md:text-4xl dark:text-white text-center text-semibold mb-8">
             {frontMatter.title}
           </h1>
+          {/* <img src="/images/post_banners/style_transfer.jpg" className="h-24 w-full rounded-lg saturate-100 shadow-lg shadow-white mb-4 text-blue-200" alt="style transfer" /> */}
           {frontMatter.description && (
             <p className="text-xl mb-4">{frontMatter.description}</p>
           )}
-          {/* <img src="/images/post_banners/style_transfer.jpg" className="w-full rounded-lg mb-8 h-20" /> */}
+          <SourceDeployButtons source={frontMatter.source} deployed={frontMatter.deployed} />
+
+          {/* <img className="w-full h-80 rounded-lg mb-4 text-blue-200 border border-[#000000] dark:border-[#ffffff]" src={frontMatter.image} alt="Picture of the author" /> */}
+          {/* {frontMatter.image && <div className={"bg-[url('" + frontMatter.image + "')] h-80 w-32 w-full bg-cover	rounded-lg p-4  mt-8 mb-4 text-blue-200 border border-[#000000] dark:border-[#ffffff]"} />
+          } */}
         </header>
+        {/* <div className="bg-[url('/images/post_banners/style_transfer.jpg')] h-32 bg-cover	rounded-lg saturate-50 p-4 shadow-lg shadow-white mb-4 text-blue-200" /> */}
 
 
-        {/* <img src="/images/post_banners/style_transfer.jpg" className="w-full rounded-lg mb-8" /> */}
 
 
 
-        <div className="grid md:grid-cols-2 gap-4 mt-2 mb-8 content-center items-center">
-          {frontMatter.source &&
-            <Link href={`${frontMatter.source}`}>
-              <a className="flex items-center rounded-lg bg-white dark:bg-black dark:bg-opacity-30 
-        bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border 
-        border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-t 
-        first:border-t last:border-b py-2 px-4">
-                <p className="uppercase text-gray-500 dark:text-white dark:opacity-60">
-                  <FaGithub className="mr-2" />
-                </p>
-                <h4 className="text-1xl text-gray-700 dark:text-white">
-                  Source code
-                </h4>
-              </a></Link>
-          }
-          {frontMatter.deployed &&
-            <Link href={`${frontMatter.deployed}`}>
-              <a className="flex items-center rounded-lg bg-white dark:bg-black dark:bg-opacity-30 
-        bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border 
-        border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-t 
-        first:border-t last:border-b py-2 px-4">
-                <p className="uppercase text-gray-500 dark:text-white dark:opacity-60">
-                  <FaLink className="mr-2" />
-                </p>
-                <h4 className="text-1xl text-gray-700 dark:text-white">
-                  Deployed app
-                </h4>
-              </a></Link>
-          }
-        </div>
+        {/* <div className="bg-[url('/images/post_banners/style_transfer.jpg')] h-32 w-full bg-cover	rounded-lg p-4 shadow-lg shadow-white mb-4 text-blue-200" /> */}
+
 
 
 
@@ -126,7 +121,7 @@ export default function PostPage({
             <MDXRemote {...source} components={components} />
           </article>
         </main>
-        <div className="grid md:grid-cols-2 gap-6 mt-8">
+        <div className="grid md:grid-cols-2 gap-6 mt-4">
           {prevPost && (
             <Link href={`/posts/${prevPost.slug}`}>
               <a className="py-6 px-8 text-center first:rounded-t-lg last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 last:border-t">
