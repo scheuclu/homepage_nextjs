@@ -29,23 +29,19 @@ export default function Navbar({ linkpage }) {
         <Link href="/" class="flex items-center">
           <div className="flex">
             <img src="/images/logo.png" class="bg-transparent invert bg-opacity-100   h-8 mr-3" alt="Flowbite Logo" />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Lukas Scheucher</span>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-whit cursor-pointer">Lukas Scheucher</span>
           </div>
         </Link>
 
-
-
-
-
         <div className="flex gap-x-4 text-2xl">
           <Link href="https://github.com/scheuclu" class="flex items-center">
-            <FaGithub className="hover:text-blue-300" />
+            <FaGithub className="hover:text-blue-300 cursor-pointer" />
           </Link>
           <Link href="https://www.linkedin.com/in/scheuclu" class="flex items-center">
-            <FaLinkedin className="hover:text-blue-300" />
+            <FaLinkedin className="hover:text-blue-300 cursor-pointer" />
           </Link>
           <Link href="https://www.youtube.com/channel/UC0So4gJ11qUZI_dzqVMOq8w" class="flex items-center">
-            <FaYoutube className="hover:text-blue-300" />
+            <FaYoutube className="hover:text-blue-300 cursor-pointer" />
           </Link>
         </div>
 
@@ -60,13 +56,13 @@ export default function Navbar({ linkpage }) {
             <li>
               <Link href="/"
                 class={page === "home" ? button_style_active : button_style_non_active} onC={() => setPage("home")}>
-                <p className="hover:text-blue-300">Home</p>
+                <p className="hover:text-blue-300 cursor-pointers">Home</p>
               </Link>
             </li>
             <li>
               <Link href="/posts"
                 className={page === "posts" ? button_style_active : button_style_non_active} onClick={() => setPage("posts")}>
-                <p className="hover:text-blue-300">Posts</p>
+                <p className="hover:text-blue-300 cursor-pointer">Posts</p>
               </Link>
             </li>
             {/* <li>
@@ -76,13 +72,13 @@ export default function Navbar({ linkpage }) {
             <li>
               <Link href="https://scheuclu.github.io/hugo_cv"
                 className={page === "cv" ? button_style_active : button_style_non_active} onClick={() => setPage("cv")}>
-                <p className="hover:text-blue-300">CV</p>
+                <p className="hover:text-blue-300 cursor-pointer">CV</p>
               </Link>
             </li>
             <li>
               <Link href="/contact"
                 className={page === "contact" ? button_style_active : button_style_non_active} onClick={() => setPage("contact")}>
-                <p className="hover:text-blue-300">Contact</p>
+                <p className="hover:text-blue-300 cursor-pointer">Contact</p>
               </Link>
             </li>
           </ul>
